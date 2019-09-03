@@ -39,6 +39,10 @@ func ResponseTime() echo.MiddlewareFunc {
 
 // ResponseTimeWithConfig is the  middleware you can custom
 func ResponseTimeWithConfig(config ResponseTimeConfig) echo.MiddlewareFunc {
+	if config.HeaderName == "" {
+		config.HeaderName = DefaultResponseTimeConfig.HeaderName
+	}
+
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(c echo.Context) error {
 			start := time.Now()
