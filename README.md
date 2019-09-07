@@ -6,7 +6,7 @@ responsetime Middleware add HTTP response Header which shows how many time spent
 
 ```go
 e := echo.New()
-e.Use(middleware.Gzip())
+e.Use(responsetime.ResponseTime())
 ```
 
 ### Custom Configuration
@@ -28,3 +28,4 @@ DefaultResponseTimeConfig = ResponseTimeConfig{
   Suffix:     false,
 }
 ```
+
